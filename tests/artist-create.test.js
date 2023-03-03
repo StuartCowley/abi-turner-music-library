@@ -7,12 +7,12 @@ describe('create artist', () => {
   describe('/artists', () => {
     describe('POST', () => {
       it('creates a new artist in the database', async () => {
-        const res = await request(app).post('/artists').send({
+          const { status, body } = await request(app).post('/artists').send({
           name: 'Tame Impala',
           genre: 'rock',
         });
 
-        expect(res.status).to.equal(201);
+        expect(status).to.equal(201);
         expect(body.name).to.equal('Tame Impala');
         expect(body.genre).to.equal('rock');
 
